@@ -61,7 +61,7 @@ jobs:
 
       - name: Check staging site
         run: |
-          response=$(curl -s -o /dev/null -w "%{http_code}" https://pentora-ai.github.io/website)
+          response=$(curl -s -o /dev/null -w "%{http_code}" https://pentora-ai.github.io/website/)
           if [ $response -eq 200 ]; then
             echo "✅ Staging site is accessible"
           else
@@ -71,7 +71,7 @@ jobs:
 
       - name: Verify site content
         run: |
-          content=$(curl -s https://pentora-ai.github.io/website)
+          content=$(curl -s https://pentora-ai.github.io/website/)
           if echo "$content" | grep -q "Pentora"; then
             echo "✅ Site content looks good"
           else
