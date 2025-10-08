@@ -1,0 +1,79 @@
+pentora:
+  label: Pentora
+  permalink: /pentora
+  description: Articles about Pentora security scanner
+
+security:
+  label: Security
+  permalink: /security
+  description: Security scanning and best practices
+
+announcement:
+  label: Announcement
+  permalink: /announcement
+  description: Product announcements and updates
+
+tutorial:
+  label: Tutorial
+  permalink: /tutorial
+  description: Step-by-step guides and tutorials
+
+beginner:
+  label: Beginner
+  permalink: /beginner
+  description: Articles for beginners getting started
+
+getting-started:
+  label: Getting Started
+  permalink: /getting-started
+  description: Getting started with Pentora
+
+cicd:
+  label: CI/CD
+  permalink: /cicd
+  description: Continuous Integration and Deployment
+
+devops:
+  label: DevOps
+  permalink: /devops
+  description: DevOps practices and automation
+
+automation:
+  label: Automation
+  permalink: /automation
+  description: Security automation and workflows
+
+github-actions:
+  label: GitHub Actions
+  permalink: /github-actions
+  description: GitHub Actions integration
+
+docker:
+  label: Docker
+  permalink: /docker
+  description: Docker container security
+
+containers:
+  label: Containers
+  permalink: /containers
+  description: Container security and best practices
+
+kubernetes:
+  label: Kubernetes
+  permalink: /kubernetes
+  description: Kubernetes security scanning
+
+iac:
+  label: Infrastructure as Code
+  permalink: /iac
+  description: IaC security scanning
+
+terraform:
+  label: Terraform
+  permalink: /terraform
+  description: Terraform security and best practices
+
+cloudformation:
+  label: CloudFormation
+  permalink: /cloudformation
+  description: AWS CloudFormation security
