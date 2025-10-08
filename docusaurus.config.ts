@@ -69,6 +69,7 @@ const config: Config = {
       logo: {
         alt: 'Pentora Logo',
         src: 'img/logo.svg',
+        srcDark: 'img/logo-dark.svg',
       },
       items: [
         {
@@ -83,7 +84,7 @@ const config: Config = {
         },
         {
           to: '/enterprise',
-          label: 'Enterprise',
+          html: 'Enterprise <span class="badge--purple">Pro</span>',
           position: 'left',
         },
         { to: '/blog', label: 'Blog', position: 'left' },
