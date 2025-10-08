@@ -48,7 +48,7 @@ const config: Config = {
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/pentora-ai/pentora-website/tree/main/',
+          editUrl: 'https://github.com/pentora-ai/website/tree/main/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',

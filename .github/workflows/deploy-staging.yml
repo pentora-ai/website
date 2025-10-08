@@ -1,0 +1,80 @@
+name: Deploy Staging
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages-staging"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build website
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
+  deploy-staging:
+    environment:
+      name: staging
+      url: https://pentora-ai.github.io/pentora-website
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages (Staging)
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  verify-staging:
+    runs-on: ubuntu-latest
+    needs: deploy-staging
+    steps:
+      - name: Wait for deployment
+        run: sleep 30
+
+      - name: Check staging site
+        run: |
+          response=$(curl -s -o /dev/null -w "%{http_code}" https://pentora-ai.github.io/pentora-website)
+          if [ $response -eq 200 ]; then
+            echo "✅ Staging site is accessible"
+          else
+            echo "❌ Staging site returned $response"
+            exit 1
+          fi
+
+      - name: Verify site content
+        run: |
+          content=$(curl -s https://pentora-ai.github.io/pentora-website)
+          if echo "$content" | grep -q "Pentora"; then
+            echo "✅ Site content looks good"
+          else
+            echo "❌ Site content verification failed"
+            exit 1
+          fi
