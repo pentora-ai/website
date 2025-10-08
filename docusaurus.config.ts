@@ -15,13 +15,9 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  // Use GitHub Pages URL when in GitHub Actions, otherwise use production domain
-  url: process.env.GITHUB_ACTIONS === 'true'
-    ? 'https://pentora-ai.github.io'
-    : 'https://pentora.ai',
+  url: 'https://pentora.ai',
   // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: process.env.GITHUB_ACTIONS === 'true' ? '/website/' : '/',
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
