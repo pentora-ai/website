@@ -12,28 +12,32 @@ This project uses a two-stage deployment strategy with GitHub Actions and GitHub
 ### 1. Staging Deployment (`deploy-staging.yml`)
 
 **Triggers:**
+
 - Push to `main` branch
 - Manual trigger via workflow_dispatch
 
 **Process:**
+
 1. Build the Docusaurus site
 2. Deploy to GitHub Pages (staging environment)
 3. Verify deployment with health checks
 
-**URL:** https://pentora-ai.github.io/pentora-website
+**URL:** https://pentora-ai.github.io/website
 
 ### 2. Production Deployment (`deploy-production.yml`)
 
 **Triggers:**
+
 - GitHub Release published
 - Manual trigger via workflow_dispatch
 
 **Process:**
+
 1. Build the Docusaurus site (production mode)
 2. Deploy to GitHub Pages (production environment)
 3. Verify deployment and perform performance checks
 
-**URL:** https://pentora-ai.github.io/pentora-website
+**URL:** https://pentora-ai.github.io/website
 
 ## Setup Instructions
 
@@ -71,6 +75,7 @@ git push origin main
 ```
 
 Or manually:
+
 1. Go to **Actions** tab
 2. Select "Deploy Staging" workflow
 3. Click "Run workflow"
@@ -78,6 +83,7 @@ Or manually:
 ### Deploy to Production
 
 **Method 1: Create a Release (Recommended)**
+
 ```bash
 # Create and push a tag
 git tag -a v1.0.0 -m "Release v1.0.0"
@@ -88,6 +94,7 @@ git push origin v1.0.0
 ```
 
 **Method 2: Manual Trigger**
+
 1. Go to **Actions** tab
 2. Select "Deploy Production" workflow
 3. Click "Run workflow"
@@ -95,6 +102,7 @@ git push origin v1.0.0
 ## Verification
 
 Both workflows include automated verification steps:
+
 - HTTP status check (200 OK)
 - Content verification (checks for "Pentora")
 - Deployment URL validation
@@ -102,16 +110,19 @@ Both workflows include automated verification steps:
 ## Troubleshooting
 
 ### Build Fails
+
 - Check Node.js version (should be 20)
 - Verify all dependencies are in `package.json`
 - Review build logs in Actions tab
 
 ### Deployment Fails
+
 - Verify GitHub Pages is enabled
 - Check repository permissions
 - Ensure workflows have proper permissions
 
 ### Site Not Accessible
+
 - Wait 1-2 minutes after deployment
 - Check if DNS is configured correctly (custom domain)
 - Verify base URL in `docusaurus.config.js`
